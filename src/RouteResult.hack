@@ -1,5 +1,5 @@
 /** lecof-router-interfaces is MIT licensed, see /LICENSE. */
-namespace HTL\LecofRouterInterfaces;
+namespace HTL\LecofInterfaces;
 
 /**
  * The return value of `Filter->filter()` calls that did not abort.

@@ -1,5 +1,5 @@
 /** lecof-router-interfaces is MIT licensed, see /LICENSE. */
-namespace HTL\LecofRouterInterfaces;
+namespace HTL\LecofInterfaces;
 
 /**
  * The instructions for parsing information from a path segment.
