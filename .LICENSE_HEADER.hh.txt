@@ -1,0 +1,1 @@
+/** lecof-router-interfaces is MIT licensed, see /LICENSE. */
