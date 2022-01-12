@@ -7,7 +7,7 @@ namespace HTL\LecofInterfaces;
  * Implementing this interface allows your class to be nested inside of a tree.
  * @see hershel-theodore-layton/lecof-router for examples.
  */
-interface Filter<+T as nonnull> {
+interface Filter<+T> {
   /**
    * When `->filter()` is called on the top-level Filter, a fresh RequestInfo
    * object and an integer 0 must be provided. A filter may inspect one or
