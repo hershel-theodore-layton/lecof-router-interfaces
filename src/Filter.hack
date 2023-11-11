@@ -15,7 +15,7 @@ interface Filter<+T> {
    * When lecof-router was released it supported hhvm version 4.73.
    * This version of hhvm did not support contexts and capabilities.
    * In order to create a migration path from v0 to v1, this constant was added
-   * as a brigde. Read more about it in the v0.3 release notes.
+   * as a brigde. Read more about it in the v1.0-RC1 release notes.
    */
   const ctx CTX = [defaults];
 
