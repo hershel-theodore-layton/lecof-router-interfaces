@@ -10,11 +10,11 @@ namespace HTL\LecofInterfaces;
  * `ParsedVariable<ID<User>>`.
  */
 interface ParsedVariable<+T> {
-  public function getName(): string;
+  public function getName()[]: string;
   /**
    * The string value from which the variable is parsed.
    * So when parsing the user id from `/users/4`, this is `string(1) "4"`.
    */
-  public function getRawValue(): string;
-  public function getValue(): T;
+  public function getRawValue()[]: string;
+  public function getValue()[]: T;
 }

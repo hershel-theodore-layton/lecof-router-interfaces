@@ -16,13 +16,13 @@ interface RequestInfo {
    * In short, I don't know what you need to route, but your implementation can
    * extend the information provided to the Filter here.
    */
-  public function getByType<reify T>(): ?T;
+  public function getByType<reify T>()[]: ?T;
   /**
    * Returns the value of `->getByType<T>()` if nonnull, otherwise an exception
    * is thrown. No requirement is placed on the type of the exception.
    * You may use this for "required" extensions.
    */
-  public function getByTypex<reify T>(): T;
+  public function getByTypex<reify T>()[]: T;
 
   /**
    * Returns the length of the path in segments.
@@ -31,7 +31,7 @@ interface RequestInfo {
    * `https://example.com/about-us/` has a length of 2.
    * `https://example.com/a//b` has a length of 3.
    */
-  public function getPathLength(): int;
+  public function getPathLength()[]: int;
   /**
    * Returns the text of the segment at the provided index.
    * `https://example.com/a/b` returns `a` for 0, `b` for 1, and null for all
@@ -39,32 +39,32 @@ interface RequestInfo {
    * `https://example.com/a//b/` returns an empty string for 1 and 3.
    * The behavior for negative integers is not defined.
    */
-  public function getPathSegment(int $index): ?string;
+  public function getPathSegment(int $index)[]: ?string;
   /**
    * Returns all path segments with the same semantics as `Vec\slice()`.
    */
   public function getPathSegments(
     int $start = 0,
     ?int $length = null,
-  ): vec<string>;
+  )[]: vec<string>;
   /**
    * Returns all path segments returned by `->getPathSegments()` joined by `/`.
    */
   public function getPathSegmentsAsString(
     int $start = 0,
     ?int $length = null,
-  ): string;
+  )[]: string;
   /**
    * Returns the value returned by `->getPathSegment()`. If the value is null
    * an unspecified exception type is thrown.
    */
-  public function getPathSegmentx(int $index): string;
+  public function getPathSegmentx(int $index)[]: string;
   /**
    * Returns true iff `->getPathSegment()` would return nonnull given $index.
    */
-  public function hasPathSegment(int $index): bool;
+  public function hasPathSegment(int $index)[]: bool;
   /**
    * Returns true iff `->getPathSegment()` would return null given $index.
    */
-  public function pathHasBeenExhausted(int $index): bool;
+  public function pathHasBeenExhausted(int $index)[]: bool;
 }

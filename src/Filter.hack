@@ -9,6 +9,17 @@ namespace HTL\LecofInterfaces;
  */
 interface Filter<+T> {
   /**
+   * If you are using v1.0 or above, you can ignore this constant.
+   * Your filter methods can declare an empty capability list.
+   *
+   * When lecof-router was released it supported hhvm version 4.73.
+   * This version of hhvm did not support contexts and capabilities.
+   * In order to create a migration path from v0 to v1, this constant was added
+   * as a brigde. Read more about it in the v0.3 release notes.
+   */
+  const ctx CTX = [defaults];
+
+  /**
    * When `->filter()` is called on the top-level Filter, a fresh RequestInfo
    * object and an integer 0 must be provided. A filter may inspect one or
    * more path segments or other attributes of the request. The Filter then
@@ -28,5 +39,5 @@ interface Filter<+T> {
   public function filter(
     RequestInfo $request_info,
     int $index,
-  ): ?RouteResult<T>;
+  )[self::CTX]: ?RouteResult<T>;
 }
