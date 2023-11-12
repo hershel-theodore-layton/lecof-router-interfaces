@@ -17,7 +17,7 @@ interface Filter<+T> {
    * In order to create a migration path from v0 to v1, this constant was added
    * as a brigde. Read more about it in the v1.0-RC1 release notes.
    */
-  const ctx CTX = [defaults];
+  const ctx CTX = [];
 
   /**
    * When `->filter()` is called on the top-level Filter, a fresh RequestInfo
