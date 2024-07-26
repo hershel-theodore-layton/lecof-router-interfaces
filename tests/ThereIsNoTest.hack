@@ -8,6 +8,6 @@ use type Facebook\HackTest\HackTest;
  * constants and attributes. It does not need any tests.
  */
 final class ThereIsNoTest extends HackTest {
-  public function test_there_are_no_tests(): void {
+  public function test_there_are_no_tests()[defaults]: void {
   }
 }
