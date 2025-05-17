@@ -6,9 +6,7 @@
     "hhvm": "^4.102"
   },
   "require-dev": {
-    "hhvm/hhvm-autoload": "^3.2",
-    "hhvm/hacktest": "^2.3",
-    "facebook/fbexpect": "^2.8"
+    "hhvm/hhvm-autoload": "^3.2"
   },
   "scripts": {
     "post-install-cmd": [
