@@ -5,7 +5,9 @@
   "require": {
     "hhvm": ">=4.102"
   },
-  "require-dev": {},
+  "require-dev": {
+    "hershel-theodore-layton/portable-hack-ast-linters-server": "<1"
+  },
   "scripts": {
     "post-install-cmd": [
       ".github/workflows/prepare-environment.sh"
