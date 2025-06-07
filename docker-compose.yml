@@ -1,0 +1,12 @@
+services:
+  hhvm:
+    container_name: theodore-lecof-router-interfaces-container
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - type: bind
+        source: .
+        target: /mnt/project
+    ports:
+      - 48548:10641
