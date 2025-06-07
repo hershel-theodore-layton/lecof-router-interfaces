@@ -8,10 +8,6 @@
   "require-dev": {
     "hershel-theodore-layton/portable-hack-ast-linters-server": "<1"
   },
-    "post-update-cmd": [
-      ".github/workflows/prepare-environment.sh"
-    ]
-  },
   "config": {
     "allow-plugins": {
       "hhvm/hhvm-autoload": true
