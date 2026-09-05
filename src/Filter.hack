@@ -4,7 +4,7 @@ namespace HTL\LecofInterfaces;
 /**
  * The element of composition of Lecof.
  * Filters are usually nested in a tree.
- * Implementing this interface allows your class to be nested inside of a tree.
+ * Implementing this interface allows your class to be nested inside a tree.
  * @see hershel-theodore-layton/lecof-router for examples.
  */
 interface Filter<+T> {
@@ -12,10 +12,10 @@ interface Filter<+T> {
    * If you are using v1.0 or above, you can ignore this constant.
    * Your filter methods can declare an empty capability list.
    *
-   * When lecof-router was released it supported hhvm version 4.73.
-   * This version of hhvm did not support contexts and capabilities.
+   * When lecof-router was released it supported HHVM version 4.73.
+   * This version of HHVM did not support contexts and capabilities.
    * In order to create a migration path from v0 to v1, this constant was added
-   * as a brigde. Read more about it in the v1.0-RC1 release notes.
+   * as a bridge. Read more about it in the v1.0-RC1 release notes.
    */
   const ctx CTX = [];
 

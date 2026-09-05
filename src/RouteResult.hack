@@ -3,7 +3,7 @@ namespace HTL\LecofInterfaces;
 
 /**
  * The return value of `Filter->filter()` calls that did not abort.
- * The `T` is route target, f.e. a function reference or a Route object.
+ * The `T` is a route target, f.e. a function reference or a Route object.
  * The `vec<ParsedVariable<mixed>>` is the list of variables in reverse order.
  * So `/users/4/friends/6` would have `vec[PV{6}, PV{4}]`.
  * Permitted operations on a `RouteResult`:
