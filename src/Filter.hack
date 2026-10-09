@@ -32,21 +32,15 @@ interface Filter<+T> {
    *     be incremented by the amount of path segments consumed.
    * - For sequential delegation, if the inner / nested `->filter()` call
    *     returns null, the current call must return null or throw an exception.
-   *     An alternative-selection filter may instead try another candidate.
-   *     Each candidate starts at the index originally supplied to the
-   *     alternative-selection filter, with the same RequestInfo. Segments
-   *     consumed by a rejected candidate do not advance the next candidate.
-   *     If all candidates return null, the current call must return null or
-   *     throw an exception.
+   *     A filter choosing between alternatives may instead try another inner
+   *     filter, without carrying over path segments consumed by the rejected
+   *     call. For example, `Lecof\merge()` calls each candidate with the same
+   *     RequestInfo and original index. One candidate's rejection does not
+   *     reject the whole merged filter; if all candidates return null, the
+   *     current call must return null or throw an exception.
    * - If the inner / nested `->filter()` call returns a nonnull value, the
    *    current call may not return null. See `RouteResult` for permitted
    *    operations on the return value of `->filter()`.
-   *    An alternative-selection filter must retain the chosen candidate's
-   *    route target and variables, subject to those same permitted operations.
-   *
-   * For example, at an exhausted path, `Lecof\merge(Lecof\null(),
-   * Lecof\done('ok'))` returns `tuple('ok', vec[])`: rejection by the first
-   * candidate does not reject the whole merged filter.
    */
   public function filter(
     RequestInfo $request_info,
