@@ -14,6 +14,8 @@ interface ParsedVariable<+T> {
   /**
    * The string value from which the variable is parsed.
    * So when parsing the user id from `/users/4`, this is `string(1) "4"`.
+   * For a path variable, this is the decoded RequestInfo segment supplied to
+   * the parser: `/files/a%2Fb` has raw `a/b`, not its original URI spelling.
    */
   public function getRawValue()[]: string;
   public function getValue()[]: T;

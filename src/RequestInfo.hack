@@ -4,6 +4,16 @@ namespace HTL\LecofInterfaces;
 /**
  * Contains the path for routing.
  * May contain many other aspects of the request.
+ *
+ * Split the URI path on raw `/`, removing one leading `/`, then URL-decode
+ * each segment once with `urldecode()`. The empty path and `/` have no
+ * segments; retain other empty and trailing segments. Exclude query and
+ * fragment text before splitting. `+` is decoded to a space.
+ *
+ * `/a%2Fb` has one segment `a/b`; `/a/b` has two segments `a` and `b`.
+ * A decoded segment may contain `/`: never split it again. `/%30` has segment
+ * `0`, and `/a%252Fb` has segment `a%2Fb` (decoding happens only once).
+ * Literal filters and variable parsers receive these decoded segment values.
  */
 interface RequestInfo {
   /**
@@ -33,7 +43,8 @@ interface RequestInfo {
    */
   public function getPathLength()[]: int;
   /**
-   * Returns the text of the segment at the provided index.
+   * Returns the decoded text of the segment at the provided index, following
+   * the path representation above.
    * `https://example.com/a/b` returns `a` for 0, `b` for 1, and null for all
    * other positive integers.
    * `https://example.com/a//b/` returns an empty string for 1 and 3.
@@ -49,6 +60,8 @@ interface RequestInfo {
   )[]: vec<string>;
   /**
    * Returns all path segments returned by `->getPathSegments()` joined by `/`.
+   * This may lose segment boundaries: `vec['a/b']` and `vec['a', 'b']`
+   * both join to `a/b`. Match segments using lookup/slicing methods instead.
    */
   public function getPathSegmentsAsString(
     int $start = 0,
